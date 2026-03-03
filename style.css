@@ -1,0 +1,282 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: #03050b;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* ========== FONDO DE ESTRELLAS (PARTÍCULAS) ========== */
+#stars, #stars2, #stars3 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+#stars {
+    background: transparent url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="300" height="300"%3E%3Ccircle cx="10" cy="10" r="1" fill="white" opacity="0.8"/%3E%3Ccircle cx="100" cy="50" r="1.2" fill="white" opacity="0.6"/%3E%3Ccircle cx="200" cy="150" r="0.8" fill="white" opacity="0.9"/%3E%3Ccircle cx="280" cy="280" r="1" fill="white" opacity="0.5"/%3E%3Ccircle cx="50" cy="250" r="1.5" fill="white" opacity="0.7"/%3E%3C/svg%3E') repeat;
+    animation: animStar 150s linear infinite;
+}
+
+#stars2 {
+    background: transparent url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="400" height="400"%3E%3Ccircle cx="30" cy="30" r="1.5" fill="white" opacity="0.4"/%3E%3Ccircle cx="150" cy="380" r="1" fill="white" opacity="0.3"/%3E%3Ccircle cx="350" cy="120" r="2" fill="white" opacity="0.5"/%3E%3Ccircle cx="280" cy="280" r="1" fill="white" opacity="0.2"/%3E%3C/svg%3E') repeat;
+    animation: animStar 200s linear infinite;
+}
+
+#stars3 {
+    background: transparent url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="600" height="600"%3E%3Ccircle cx="80" cy="80" r="1" fill="%23f7d794" opacity="0.7"/%3E%3Ccircle cx="500" cy="400" r="1.8" fill="%23f5a97f" opacity="0.5"/%3E%3Ccircle cx="250" cy="550" r="1.2" fill="%23e0bbff" opacity="0.6"/%3E%3C/svg%3E') repeat;
+    animation: animStar 300s linear infinite;
+}
+
+@keyframes animStar {
+    from { transform: translateY(0); }
+    to { transform: translateY(-2000px); }
+}
+
+/* ========== CONTENEDOR PRINCIPAL ========== */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2rem 2rem 1rem;
+    position: relative;
+    z-index: 10;
+    backdrop-filter: blur(1px);
+}
+
+/* ========== TIPOGRAFÍA Y ENCABEZADOS ========== */
+h1, h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 300;
+    letter-spacing: 2px;
+}
+
+.titulo-principal {
+    font-size: 3.5rem;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+    text-align: center;
+    text-shadow: 0 0 15px rgba(255, 200, 240, 0.6);
+}
+
+.destello {
+    font-weight: 600;
+    background: linear-gradient(45deg, #ffd6e8, #c3a0f0, #a0d0ff);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    text-shadow: 0 0 30px rgba(195, 160, 240, 0.8);
+}
+
+.subtitulo {
+    text-align: center;
+    font-size: 1.2rem;
+    font-weight: 200;
+    color: #cbd5e0;
+    margin-bottom: 2rem;
+    border-bottom: 1px dashed rgba(255,255,255,0.2);
+    padding-bottom: 1rem;
+}
+
+.constelacion-titulo {
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffb6c1, #c3a0f0, #a0d0ff, transparent);
+    margin: 2rem 0;
+}
+
+/* ========== POEMAS ========== */
+.poema {
+    margin: 4rem 0;
+    position: relative;
+}
+
+.estrellas-poema {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.estrella {
+    width: 8px;
+    height: 8px;
+    background-color: rgba(255,255,240,0.6);
+    border-radius: 50%;
+    box-shadow: 0 0 15px 3px rgba(255,255,200,0.5);
+    animation: twinkle 4s infinite ease-in-out;
+}
+
+.estrella.brillante {
+    width: 12px;
+    height: 12px;
+    background-color: #ffeaa5;
+    box-shadow: 0 0 25px 8px #f1c40f;
+    animation: twinkleBright 3s infinite;
+}
+
+@keyframes twinkle {
+    0%, 100% { opacity: 0.5; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+@keyframes twinkleBright {
+    0%, 100% { opacity: 0.8; transform: scale(1); box-shadow: 0 0 25px 8px #f1c40f; }
+    50% { opacity: 1; transform: scale(1.5); box-shadow: 0 0 35px 15px #f39c12; }
+}
+
+.verso p {
+    font-size: 1.2rem;
+    margin-bottom: 1.8rem;
+    text-align: center;
+    font-weight: 200;
+    font-family: 'Cormorant Garamond', serif;
+    transition: text-shadow 0.3s ease;
+}
+
+.verso p:hover {
+    text-shadow: 0 0 8px #ffb6c1;
+}
+
+.verso .final {
+    font-weight: 400;
+    font-size: 1.3rem;
+    margin-top: 2.5rem;
+    color: #f0e6d0;
+    border-left: 3px solid #c3a0f0;
+    padding-left: 1.5rem;
+    text-align: left;
+    font-style: italic;
+}
+
+/* ========== SEPARADOR ========== */
+.separador {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 3rem 0;
+}
+
+.circulo {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: #9f7aea;
+    opacity: 0.7;
+    animation: pulse 2s infinite;
+}
+
+.circulo:nth-child(2) {
+    animation-delay: 0.5s;
+    width: 12px;
+    height: 12px;
+    background-color: #fbb6ce;
+}
+
+.circulo:nth-child(3) {
+    animation-delay: 1s;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.5); }
+}
+
+/* ========== BOTÓN Y MENSAJE ========== */
+.interaccion-universo {
+    text-align: center;
+    margin: 5rem 0 3rem;
+    padding: 2rem;
+    border-radius: 30px;
+    background: rgba(10, 10, 25, 0.5);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+
+.pregunta-estrellas {
+    font-size: 1.8rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #ffe0b5;
+    margin-bottom: 1.5rem;
+}
+
+.boton-estelar {
+    background: transparent;
+    border: 2px solid #c3a0f0;
+    color: #c3a0f0;
+    padding: 1rem 2.5rem;
+    font-size: 1.3rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    letter-spacing: 3px;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 20px rgba(195, 160, 240, 0.3);
+    backdrop-filter: blur(2px);
+}
+
+.boton-estelar:hover {
+    background: #c3a0f0;
+    color: #03050b;
+    box-shadow: 0 0 40px #c3a0f0;
+    transform: scale(1.05);
+    border-color: #fbb6ce;
+}
+
+.mensaje-cosmico {
+    margin-top: 2rem;
+    min-height: 80px;
+    font-size: 1.4rem;
+    font-family: 'Cormorant Garamond', serif;
+    color: #fadfad;
+    text-shadow: 0 0 10px #f0f;
+    padding: 1rem;
+    transition: opacity 0.8s;
+}
+
+/* ========== FOOTER ========== */
+footer {
+    text-align: center;
+    margin-top: 4rem;
+    padding: 2rem 0 1rem;
+    font-size: 0.9rem;
+    color: #718096;
+    border-top: 1px dashed rgba(255,255,255,0.1);
+}
+
+.firma {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    color: #a0aec0;
+    font-style: italic;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 600px) {
+    .titulo-principal {
+        font-size: 2.5rem;
+    }
+    .verso p {
+        font-size: 1rem;
+    }
+    .verso .final {
+        font-size: 1.1rem;
+    }
+    .boton-estelar {
+        font-size: 1rem;
+        padding: 0.8rem 1.5rem;
+    }
+}
